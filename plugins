@@ -1,5 +1,0 @@
-" Use plugins.config if available {
-    if filereadable(expand("~/.tim-vim/plugins.config"))
-      source ~/.tim-vim/plugins.config
-    endif
-" }

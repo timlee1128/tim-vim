@@ -35,8 +35,8 @@
 " }
 
 " Use plugins if available {
-    if filereadable(expand("~/.tim-vim/plugins"))
-      source ~/.tim-vim/plugins
+    if filereadable(expand("~/.tim-vim/vimrc.plugins"))
+      source ~/.tim-vim/vimrc.plugins
     endif
 " }
 
@@ -556,12 +556,12 @@
 
     function! s:EditTimConfig()
         call <SID>ExpandFilenameAndExecute("tabedit", "~/.tim-vim/vimrc")
-        call <SID>ExpandFilenameAndExecute("vsplit", "~/.tim-vim/plugins")
+        call <SID>ExpandFilenameAndExecute("vsplit", "~/.tim-vim/vimrc.plugins")
 
         execute bufwinnr("vimrc") . "wincmd w"
         call <SID>ExpandFilenameAndExecute("split", "~/.tim-vim/vimrc.before")
         wincmd l
-        call <SID>ExpandFilenameAndExecute("split", "~/.tim-vim/plugins.config")
+        call <SID>ExpandFilenameAndExecute("split", "~/.tim-vim/vimrc.plugins.config")
 
         execute bufwinnr("vimrc.before") . "wincmd w"
     endfunction
