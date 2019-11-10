@@ -1,15 +1,23 @@
-let g:tim_no_autochdir = 0
-let g:tim_no_restore_cursor = 1
-let g:tim_no_views = 1      " use for 'vim-scripts/restore_view.vim'
+" -------------------------------------------------------------
+" if you want to use next features, uncomment the one you want,
+" otherwise, comment it.
+" -------------------------------------------------------------
+"let g:tim_no_autochdir = 1
+"let g:tim_no_restore_cursor = 1
+"let g:tim_no_views = 1      " use for 'vim-scripts/restore_view.vim'
+"let g:tim_no_easyWindows = 1
+"let g:tim_no_wrapRelMotion = 1
+"let g:tim_no_fastTabs = 1
+"let g:tim_no_keyfixes = 1
+"let g:tim_clear_search_highlight = 1
+"let g:tim_no_big_font = 1
+"let g:overrid_tim_bundles = 1 " use for plugins
+" -------------------------------------------------------------
+" features end
+" -------------------------------------------------------------
+
 let g:tim_leader = ','
 let g:tim_localleader = '_'
 let g:tim_edit_config_mapping = '<leader>ev'
 let g:tim_apply_config_mapping = '<leader>sc'
-let g:tim_no_easyWindows = 1
-let g:tim_no_wrapRelMotion = 1
-let g:tim_no_fastTabs = 1
-let g:tim_no_keyfixes = 0
-let g:tim_clear_search_highlight = 0
 let g:tim_consolidated_directory = $HOME . '/.vim/'
-let g:tim_no_big_font = 1
-let g:overrid_tim_bundles = 1 " use for plugins

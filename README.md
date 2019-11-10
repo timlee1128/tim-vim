@@ -7,10 +7,10 @@ mv ~/.vimrc ~/.vimrc.back
 
 2. Clone and install this repo:  
 ```
-git clone addr ~/.vim
-ln -s ~/.vim/vimrc ~/.vimrc
+git clone addr ~/.tim-vim
+ln -s ~/.tim-vim/vimrc ~/.vimrc
 ```
 
 3. Setup `Plug`
 
-4. Install bundles. Launch vim(ignore the errors and they will disappear after installing needed plugins)and run:  
+4. Install plugins. Launch vim(ignore the errors and they will disappear after installing needed plugins)and run:  

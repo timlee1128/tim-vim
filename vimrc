@@ -2,7 +2,7 @@
 
   " Indentify platform {
       silent function! OSX()
-        return has('maxunix')
+          return has('macunix')
       endfunction
       silent function! LINUX()
           return has('unix') && !has('macunix') && !has('win32unix')
@@ -87,7 +87,7 @@
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
     set history=1000                    " Store a ton of history (default is 20)
-    set spell                           " Spell checking on
+    set nospell                           " Spell checking off
     set hidden                          " Allow buffer switching without saving
     set iskeyword-=.                    " '.' is an end of word designator
     set iskeyword-=#                    " '#' is an end of word designator
@@ -139,18 +139,19 @@
 
 " Vim UI {
 
-    if !exists('g:override_tim_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
-    endif
+    "if !exists('g:override_tim_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+    "    let g:solarized_termcolors=256
+    "    let g:solarized_termtrans=1
+    "    let g:solarized_contrast="normal"
+    "    let g:solarized_visibility="normal"
+    "    color solarized             " Load a colorscheme
+    "endif
 
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
 
     set cursorline                  " Highlight current line
+    set guicursor+=a:blinkon0       " cursor no blink
 
     highlight clear SignColumn      " SignColumn should match background
     highlight clear LineNr          " Current line number row will have same background color in relative mode
@@ -170,7 +171,7 @@
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
         if !exists('g:overrid_tim_bundles')
-            set statusline+=%{fugitive#statusline()} " Git Hotness
+            "set statusline+=%{fugitive#statusline()} " Git Hotness
         endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
@@ -191,7 +192,8 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
+    set nofoldenable                " Auto fold code
+    set foldmethod=indent
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
@@ -201,10 +203,10 @@
 
     set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
-    set shiftwidth=4                " Use indents of 4 spaces
+    set shiftwidth=2                " Use indents of 2 spaces
     set expandtab                   " Tabs are spaces, not tabs
-    set tabstop=4                   " An indentation every four columns
-    set softtabstop=4               " Let backspace delete indent
+    set tabstop=2                   " An indentation every two columns
+    set softtabstop=2               " Let backspace delete indent
     set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
     set splitright                  " Puts new vsplit windows to the right of the current
     set splitbelow                  " Puts new split windows to the bottom of the current
@@ -218,7 +220,7 @@
     autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:tim_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
     "autocmd FileType go autocmd BufWritePre <buffer> Fmt
     autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
-    autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+    "autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
     " preceding line best in a plugin but here for now.
 
     autocmd BufNewFile,BufRead *.coffee set filetype=coffee
@@ -268,12 +270,19 @@
     " If you prefer that functionality, add the following to your
     " .vimrc.before file:
     "   let g:tim_no_easyWindows = 1
-    " 需要将自己的窗口配置移过来，这里的窗口配置太烂了
     if !exists('g:tim_no_easyWindows')
-        map <C-J> <C-W>j<C-W>_
-        map <C-K> <C-W>k<C-W>_
-        map <C-L> <C-W>l<C-W>_
-        map <C-H> <C-W>h<C-W>_
+        nnoremap ∆ <C-W><C-J> 
+        nnoremap ˚ <C-W><C-K>
+        nnoremap ˙ <C-W><C-H>
+        nnoremap ¬ <C-W><C-L>
+        nnoremap ç <C-W><C-C>
+        nnoremap ß <C-W><C-N>
+        nnoremap √ <C-W><C-V>
+        nnoremap ≠ :exe "resize " . (winheight(0) * 4/3)<CR> 
+        nnoremap – :exe "resize " . (winheight(0) * 3/4)<CR>
+        noremap ≥ :exe "vertical resize " . (winwidth(0) * 4/3)<CR>
+        nnoremap ≤ :exe "vertical resize " . (winwidth(0) * 3/4)<CR>
+        nnoremap ∑ :call WindowSwap#EasyWindowSwap()<CR>
     endif
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
@@ -424,14 +433,16 @@
     " GVIM- (here instead of .gvimrc)
     if has('gui_running')
         set guioptions-=T           " Remove the toolbar
+        set guioptions-=r           " Remove right scrollbar
+        set guioptions-=L           " Remove left scrollbar
         set lines=40                " 40 lines of text instead of 24
         if !exists("g:tim_no_big_font")
             if LINUX() && has("gui_running")
-                set guifont=Andale\ Mono\ Regular\ 12,Menlo\ Regular\ 11,Consolas\ Regular\ 12,Courier\ New\ Regular\ 14
+                set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h14
             elseif OSX() && has("gui_running")
-                set guifont=Andale\ Mono\ Regular:h12,Menlo\ Regular:h11,Consolas\ Regular:h12,Courier\ New\ Regular:h14
+                set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h14
             elseif WINDOWS() && has("gui_running")
-                set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+                set guifont=Hack\ Regular\ Nerd\ Font\ Complete:h14
             endif
         endif
     else
@@ -538,22 +549,23 @@
     command! -complete=file -nargs=+ Shell call s:RunShellCommand(<q-args>)
     " e.g. Grep current file for <search_term>: Shell grep -Hn <search_term> %
     " }
-     
+
     function! s:ExpandFilenameAndExecute(command, file)
         execute a:command . " " . expand(a:file, ":p")
     endfunction
-     
+
     function! s:EditTimConfig()
         call <SID>ExpandFilenameAndExecute("tabedit", "~/.tim-vim/vimrc")
-        call <SID>ExpandFilenameAndExecute("vsplit", "~/.tim-vim/vimrc.before")
-        
+        call <SID>ExpandFilenameAndExecute("vsplit", "~/.tim-vim/plugins")
+
         execute bufwinnr("vimrc") . "wincmd w"
-        call <SID>ExpandFilenameAndExecute("split", "~/.tim-vim/plugins")
+        call <SID>ExpandFilenameAndExecute("split", "~/.tim-vim/vimrc.before")
+        wincmd l
         call <SID>ExpandFilenameAndExecute("split", "~/.tim-vim/plugins.config")
-     
-        execute bufwinnr("plugins") . "wincmd w"
+
+        execute bufwinnr("vimrc.before") . "wincmd w"
     endfunction
-     
+
     execute "noremap " . s:tim_edit_config_mapping " :call <SID>EditTimConfig()<CR>"
     execute "noremap " . s:tim_apply_config_mapping . " :source ~/.vimrc<CR>"
 " }
