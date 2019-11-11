@@ -45,6 +45,8 @@
         "            \'php', 'ruby', 'python', 'javascript', 'html',
         "            \'misc',
         "            \]
+        " 需要的功能分类有: 
+        " 1. 通用编程工具(autocomplete, checker, fixer, commenter)
         let g:tim_bundle_groups=[
                     \'general',
                     \'UI',
