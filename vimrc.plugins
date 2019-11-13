@@ -36,32 +36,42 @@
 
     " In your .vimrc.before file
     " list only the plugin groups you will use
-    if !exists('g:tim_bundle_groups')
-        "let g:tim_bundle_groups=[
-        "            \'general',
-        "            \'writing',
-        "            \'neocomplete',
-        "            \'programming',
-        "            \'php', 'ruby', 'python', 'javascript', 'html',
-        "            \'misc',
-        "            \]
-        " 需要的功能分类有: 
-        " 1. 通用编程工具(autocomplete, checker, fixer, commenter)
-        let g:tim_bundle_groups=[
-                    \'general',
+    if !exists('g:tim_plugin_groups')
+        " Functional Classification:
+        "   1. General Programing
+        "     autocomplete, syntastic, commenter, tags,
+        "     fuzzy search, version control, file tree,
+        "     doc
+        "
+        "   2. UI
+        "     colortheme, status line
+        "
+        "   3. Language(HTML, CSS, Vue, React, Javascript, Python)
+        "     REPL, Debug, Grammar Beauty
+        "
+        "   4. Editing
+        "     autopair, textobj, easymotion
+        "
+        "   5. Misc
+        let g:tim_plugin_groups = [
+                    \'autocomplete', 'syntastic', 'commenter', 'tags', 'fuzzy search', 'version control', 'file tree', 'doc'
                     \'UI',
-                    \'writing',
-                    \'neocomplete',
-                    \'programming',
-                    \'php', 'ruby', 'python', 'javascript', 'html',
+                    \'python', 'javascript', 'html', 'css', 'vue', 'react'
+                    \'autopir', 'textobj', 'easymotion',
                     \'misc',
                     \]
     endif
 
     " To override all the included plugins, add the following to your
-    " .vimrc.bundles.local file:
-    "   let g:override_spf13_bundles = 1
-    if !exists("g:override_spf13_bundles")
+    " vimrc.plugins.config file:
+    "   let g:override_tim_plugins = 1
+    if !exists("g:override_tim_plugins")
+        " General Programing {
+            if count(g:tim_plugin_groups, 'autocomplete')
+                Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+            endif
+        " }
 
 
 
