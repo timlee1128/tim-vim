@@ -69,7 +69,7 @@
         " General Programing {
             if count(g:tim_plugin_groups, 'autocomplete')
                 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
+                Plug 'honza/vim-snippets'
             endif
         " }
 
