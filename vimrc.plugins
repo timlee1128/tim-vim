@@ -54,11 +54,12 @@
         "
         "   5. Misc
         let g:tim_plugin_groups = [
-          \'autocomplete', 'syntastic', 'commenter', 'tags', 'fuzzy search', 'version control', 'file tree', 'doc'
+          \'autocomplete', 'syntastic', 'commenter', 'tags', 'fuzzy search',
+          \'version control', 'file tree', 'doc',
           \'UI',
-          \'python', 'javascript', 'html', 'css', 'vue', 'react', 'json'
+          \'python', 'javascript', 'html', 'css', 'vue', 'react', 'json',
           \'autopir', 'textobj', 'easymotion',
-          \'misc',
+          \'misc'
           \]
     endif
 
@@ -82,6 +83,18 @@
             endif
           "}
         "}
+
+        " UI {
+            if count(g:tim_plugin_groups, 'UI')
+                if (g:tim_theme == 'molokai')
+                    Plug 'tomasr/molokai'
+                endif
+
+                if g:tim_theme == 'solarized'
+                    Plug 'altercation/vim-colors-solarized'
+                endif
+            endif
+        " }
     endif
 
     call plug#end()
