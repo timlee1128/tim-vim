@@ -54,12 +54,12 @@
         "
         "   5. Misc
         let g:tim_plugin_groups = [
-                    \'autocomplete', 'syntastic', 'commenter', 'tags', 'fuzzy search', 'version control', 'file tree', 'doc'
-                    \'UI',
-                    \'python', 'javascript', 'html', 'css', 'vue', 'react'
-                    \'autopir', 'textobj', 'easymotion',
-                    \'misc',
-                    \]
+          \'autocomplete', 'syntastic', 'commenter', 'tags', 'fuzzy search', 'version control', 'file tree', 'doc'
+          \'UI',
+          \'python', 'javascript', 'html', 'css', 'vue', 'react', 'json'
+          \'autopir', 'textobj', 'easymotion',
+          \'misc',
+          \]
     endif
 
     " To override all the included plugins, add the following to your
@@ -73,8 +73,15 @@
             endif
         " }
 
-
-
+        " Syntastic {
+          " ale {
+            if count(g:tim_plugin_groups, 'syntastic')
+              if count(g:tim_plugin_groups, 'ale')
+                Plug 'w0rp/ale'
+              endif
+            endif
+          "}
+        "}
     endif
 
     call plug#end()
