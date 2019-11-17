@@ -104,6 +104,25 @@
             if count(g:tim_plugin_groups, 'autopair')
                 Plug 'jiangmiao/auto-pairs'
                 Plug 'luochen1990/rainbow'
+                Plug 'tpope/vim-surround'   "增加cs, ds, ys等操作符, 用来快速输入包裹符号
+            endif
+
+            if count(g:tim_plugin_groups, 'textobj')
+                Plug 'tpope/vim-repeat'     " . enhance
+                Plug 'kana/vim-textobj-user'  "定义自己的文本对象, textobj 的依赖, 文本对象参考 motion.txt
+                Plug 'kana/vim-textobj-indent'
+                Plug 'kana/vim-textobj-function', {'for': ['c', 'vim', 'java', 'javascript']}
+                Plug 'thinca/vim-textobj-function-javascript', {'for': ['javascript']}
+                Plug 'machakann/vim-textobj-functioncall'
+                Plug 'bps/vim-textobj-python', {'for': ['python']}
+                Plug 'glts/vim-textobj-comment'
+                Plug 'kana/vim-textobj-syntax'
+                Plug 'sgur/vim-textobj-parameter'
+                Plug 'whatyouhide/vim-textobj-xmlattr'
+            endif
+
+            if count(g:tim_plugin_groups, 'easymotion')
+                Plug 'easymotion/vim-easymotion'
             endif
         " }
     endif
