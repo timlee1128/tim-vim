@@ -76,6 +76,10 @@
             if count(g:tim_plugin_groups, 'commenter')
                 Plug 'tpope/vim-commentary'
             endif
+
+            if count(g:tim_plugin_groups, 'file tree')
+              Plug 'scrooloose/nerdtree'
+            endif
         " }
 
         " Syntastic {
@@ -90,6 +94,8 @@
 
         " UI {
             if count(g:tim_plugin_groups, 'UI')
+                Plug 'mhinz/vim-startify'
+
                 if (g:tim_theme == 'molokai')
                     Plug 'tomasr/molokai'
                 endif
@@ -124,6 +130,10 @@
             if count(g:tim_plugin_groups, 'easymotion')
                 Plug 'easymotion/vim-easymotion'
             endif
+        " }
+
+        " Misc {
+          Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
         " }
     endif
 
