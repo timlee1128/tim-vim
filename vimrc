@@ -138,15 +138,6 @@
 " }
 
 " Vim UI {
-
-    "if !exists('g:override_tim_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-    "    let g:solarized_termcolors=256
-    "    let g:solarized_termtrans=1
-    "    let g:solarized_contrast="normal"
-    "    let g:solarized_visibility="normal"
-    "    color solarized             " Load a colorscheme
-    "endif
-
     set tabpagemax=15               " Only show 15 tabs
     set showmode                    " Display the current mode
 
@@ -192,7 +183,7 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set nofoldenable                " Auto fold code
+    set foldenable                  " Auto fold code
     set foldmethod=indent
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace

@@ -6,7 +6,7 @@
 "let g:tim_no_restore_cursor = 1
 "let g:tim_no_views = 1      " use for 'vim-scripts/restore_view.vim'
 "let g:tim_no_easyWindows = 1
-"let g:tim_no_wrapRelMotion = 1
+let g:tim_no_wrapRelMotion = 1
 "let g:tim_no_fastTabs = 1
 "let g:tim_no_keyfixes = 1
 "let g:tim_clear_search_highlight = 1
@@ -26,4 +26,4 @@ let g:tim_consolidated_directory = $HOME . '/.vim/'
 " 'evening', 'industry', 'koehler', 'macvim', 'molokai', 'morning', 'murphy',
 " 'pablo', 'peachpuff', 'ron', 'shine', 'slate', 'torte', 'zellner',
 " 'solarized']
-let g:tim_theme = 'desert'
+let g:tim_theme = 'molokai'

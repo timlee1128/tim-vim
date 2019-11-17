@@ -133,7 +133,7 @@
         " }
 
         " Misc {
-          Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+          " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
         " }
     endif
 
