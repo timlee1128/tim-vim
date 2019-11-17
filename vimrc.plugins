@@ -72,6 +72,10 @@
                 Plug 'neoclide/coc.nvim', {'branch': 'release'}
                 Plug 'honza/vim-snippets'
             endif
+
+            if count(g:tim_plugin_groups, 'commenter')
+                Plug 'tpope/vim-commentary'
+            endif
         " }
 
         " Syntastic {
