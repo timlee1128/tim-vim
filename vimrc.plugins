@@ -58,7 +58,7 @@
           \'version control', 'file tree', 'doc',
           \'UI',
           \'python', 'javascript', 'html', 'css', 'vue', 'react', 'json',
-          \'autopir', 'textobj', 'easymotion',
+          \'autopair', 'textobj', 'easymotion',
           \'misc'
           \]
     endif
@@ -93,6 +93,13 @@
                 if g:tim_theme == 'solarized'
                     Plug 'altercation/vim-colors-solarized'
                 endif
+            endif
+        " }
+
+        " Editing {
+            if count(g:tim_plugin_groups, 'autopair')
+                Plug 'jiangmiao/auto-pairs'
+                Plug 'luochen1990/rainbow'
             endif
         " }
     endif
