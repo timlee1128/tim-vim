@@ -21,4 +21,9 @@ let g:tim_localleader = '_'
 let g:tim_edit_config_mapping = '<leader>ev'
 let g:tim_apply_config_mapping = '<leader>sc'
 let g:tim_consolidated_directory = $HOME . '/.vim/'
-let g:tim_theme = 'molokai'
+
+" colortheme: ['blue', 'darkblue', 'default', 'delek', 'desert', 'elflord',
+" 'evening', 'industry', 'koehler', 'macvim', 'molokai', 'morning', 'murphy',
+" 'pablo', 'peachpuff', 'ron', 'shine', 'slate', 'torte', 'zellner',
+" 'solarized']
+let g:tim_theme = 'solarized'
