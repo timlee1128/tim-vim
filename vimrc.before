@@ -25,5 +25,5 @@ let g:tim_consolidated_directory = $HOME . '/.vim/'
 " colortheme: ['blue', 'darkblue', 'default', 'delek', 'desert', 'elflord',
 " 'evening', 'industry', 'koehler', 'macvim', 'molokai', 'morning', 'murphy',
 " 'pablo', 'peachpuff', 'ron', 'shine', 'slate', 'torte', 'zellner',
-" 'solarized']
+" 'solarized', 'dracula']
 let g:tim_theme = 'molokai'
