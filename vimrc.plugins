@@ -53,6 +53,8 @@
         "     autopair, textobj, easymotion
         "
         "   5. Misc
+        "
+        " TODO: tags, fuzzy search, REPL, Debug, enhance...
         let g:tim_plugin_groups = [
           \'autocomplete', 'syntastic', 'commenter', 'tags', 'fuzzy search',
           \'version control', 'file tree', 'doc',
@@ -116,7 +118,7 @@
                 endif
 
                 if g:tim_theme == 'dracula'
-                  Plug 'dracula/dracula-theme'
+                  Plug 'crusoexia/vim-dracula'
                 endif
             endif
         " }

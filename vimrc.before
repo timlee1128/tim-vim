@@ -26,4 +26,4 @@ let g:tim_consolidated_directory = $HOME . '/.vim/'
 " 'evening', 'industry', 'koehler', 'macvim', 'molokai', 'morning', 'murphy',
 " 'pablo', 'peachpuff', 'ron', 'shine', 'slate', 'torte', 'zellner',
 " 'solarized', 'dracula']
-let g:tim_theme = 'molokai'
+let g:tim_theme = 'dracula'
