@@ -123,6 +123,8 @@
             set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
         endif
 
+        set noswapfile
+
         " To disable views add the following to your vimrc.before file:
         "   let g:tim_no_views = 1
         "   use for plugin restore_view.vim
