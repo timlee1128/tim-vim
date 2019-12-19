@@ -82,7 +82,8 @@
         " Always switch to the current file directory
     endif
 
-    "set autowrite                       " Automatically write a file when leaving a modified buffer
+    set autowrite                       " Automatically write a file when leaving a modified buffer
+    set autoread                        " Automatically read a file when file changed outside
     set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
     set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
     set virtualedit=onemore             " Allow for cursor beyond last character
@@ -161,14 +162,14 @@
         set laststatus=2
 
         " Broken down into easily includeable segments
-        set statusline=%<%f\                     " Filename
-        set statusline+=%w%h%m%r                 " Options
-        if !exists('g:overrid_tim_bundles')
-            "set statusline+=%{fugitive#statusline()} " Git Hotness
-        endif
-        set statusline+=\ [%{&ff}/%Y]            " Filetype
-        set statusline+=\ [%{getcwd()}]          " Current dir
-        set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+        " set statusline=%<%f\                     " Filename
+        " set statusline+=%w%h%m%r                 " Options
+        " if !exists('g:overrid_tim_bundles')
+        "   set statusline+=%{fugitive#statusline()} " Git Hotness
+        " endif
+        " set statusline+=\ [%{&ff}/%Y]            " Filetype
+        " set statusline+=\ [%{getcwd()}]          " Current dir
+        " set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
     endif
 
     set backspace=indent,eol,start  " Backspace for dummies
@@ -176,7 +177,7 @@
     set number                      " Line numbers on
     set showmatch                   " Show matching brackets/parenthesis
     set incsearch                   " Find as you type search
-    set hlsearch                    " Highlight search terms
+    set nohlsearch                  " No Highlight search terms
     set winminheight=0              " Windows can be 0 line high
     set ignorecase                  " Case insensitive search
     set smartcase                   " Case sensitive when uc present
@@ -185,7 +186,7 @@
     set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
-    set foldenable                  " Auto fold code
+    set nofoldenable                " Disable auto fold code
     set foldmethod=indent
     set list
     set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
